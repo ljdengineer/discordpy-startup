@@ -2,9 +2,12 @@ from discord.ext import commands
 import os
 import traceback
 
+import asyncio
+import random
+import discord
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -13,13 +16,13 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 @bot.event
-async def on_ready();
+async def on_ready():
     print('Rainbow Bot available!')
 
-    try;
+    try:
         home = bot.get_guild(671718259212681216)
         role- home.get_role(672879406838054942)
-        while True;
+        while True:
             color = [0xb35d5d, 0xb39a5d, 0x91b35d, 0x5db35f, 0x5db3a0, 0x5d90b3, 0x625db3, 0x965db3, 0xb35d9a]
             r = random.choice(color)
             colors = discord.Color(r)
