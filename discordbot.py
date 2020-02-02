@@ -13,7 +13,7 @@ async def on_command_error(ctx, error):
     
 @bot.command()
 async def ping(ctx):
-    for(int i = 0; i <5; i++)
+    for i in range(5):
         await ctx.send(f'No.{i} Latency: {round(bot.latency * 1000)}ms')
 
 @bot.command()
