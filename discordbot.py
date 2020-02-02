@@ -16,7 +16,7 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     for i in range(5):
         await ctx.send(f'No.{i} Latency: {round(bot.latency * 1000)}ms')
-        time.sleep(1)
+        time.sleep(10)
 
 @bot.command()
 async def teemo(ctx):
