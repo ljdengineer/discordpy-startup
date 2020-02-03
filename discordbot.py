@@ -16,8 +16,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
-"""    
-@client.event
+@bot.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
     if message_id == 673725675131240458:
@@ -47,7 +46,7 @@ async def on_raw_reaction_add(payload):
             else:
                 print("Role not found")
 
-@client.event
+@bot.event
 async def on_raw_reaction_remove(payload):
     message_id = payload.message_id
     if message_id == 673725675131240458:
@@ -76,7 +75,6 @@ async def on_raw_reaction_remove(payload):
                 print("removed")
             else:
                 print("Role not found")
-"""
 
 @bot.command()
 async def ping(ctx):
