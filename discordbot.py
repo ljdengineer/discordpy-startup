@@ -7,7 +7,7 @@ import time
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-ID_CHANNEL_README = 672326802253021184 # 該当のチャンネルのID  
+ID_CHANNEL_README = 673725558898688047 # 該当のチャンネルのID  
 ID_ROLE_WELCOME = 673726943538970640 # 付けたい役職のID  
 
 client = discord.Client()
