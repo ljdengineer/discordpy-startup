@@ -8,6 +8,12 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 client = discord.Client()
 
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
+
 @client.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
@@ -17,15 +23,15 @@ async def on_raw_reaction_add(payload):
 
         if payload.emoji.name == 'lxmage':
             role = discord.utils.get(guild.role, name='mage')
-        elif payload.emoji.name == 'lxfighter'
+        elif payload.emoji.name == 'lxfighter':
             role = discord.utils.get(guild.role, name='fighter')
-        elif payload.emoji.name == 'lxmarksman'
+        elif payload.emoji.name == 'lxmarksman':
             role = discord.utils.get(guild.role, name='marksman')
-        elif payload.emoji.name == 'lxtank'
+        elif payload.emoji.name == 'lxtank':
             role = discord.utils.get(guild.role, name='tank')
-        elif payload.emoji.name == 'lxsupport'
+        elif payload.emoji.name == 'lxsupport':
             role = discord.utils.get(guild.role, name='support')
-        elif payload.emoji.name == 'lxassasin'
+        elif payload.emoji.name == 'lxassasin':
             role = discord.utils.get(guild.role, name='assasin')
         else:
             role = discord.utils.get(guild.role, name=payload.emoji.name)
@@ -47,15 +53,15 @@ async def on_raw_reaction_remove(payload):
 
         if payload.emoji.name == 'lxmage':
             role = discord.utils.get(guild.role, name='mage')
-        elif payload.emoji.name == 'lxfighter'
+        elif payload.emoji.name == 'lxfighter':
             role = discord.utils.get(guild.role, name='fighter')
-        elif payload.emoji.name == 'lxmarksman'
+        elif payload.emoji.name == 'lxmarksman':
             role = discord.utils.get(guild.role, name='marksman')
-        elif payload.emoji.name == 'lxtank'
+        elif payload.emoji.name == 'lxtank':
             role = discord.utils.get(guild.role, name='tank')
-        elif payload.emoji.name == 'lxsupport'
+        elif payload.emoji.name == 'lxsupport':
             role = discord.utils.get(guild.role, name='support')
-        elif payload.emoji.name == 'lxassasin'
+        elif payload.emoji.name == 'lxassasin':
             role = discord.utils.get(guild.role, name='assasin')
         else:
             role = discord.utils.get(guild.role, name=payload.emoji.name)
@@ -68,12 +74,6 @@ async def on_raw_reaction_remove(payload):
             else:
                 print("Role not found")
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-    
 @bot.command()
 async def ping(ctx):
     for i in range(5):
