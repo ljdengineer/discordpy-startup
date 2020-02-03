@@ -21,7 +21,7 @@ async def on_raw_reaction_add(payload):
     message_id = payload.message_id
     if message_id == 673725675131240458:
         guild_id = payload.guild_id
-        guild = discord.utils.find(lamba g: g.id == guild_id, client.guilds)
+        guild = discord.utils.find(lamba g : g.id == guild_id, client.guilds)
 
         if payload.emoji.name == 'lxmage':
             role = discord.utils.get(guild.role, name='mage')
@@ -39,7 +39,7 @@ async def on_raw_reaction_add(payload):
             role = discord.utils.get(guild.role, name=payload.emoji.name)
 
         if role is not None:
-            member = discord.utils.find(lamba m: m.id == payload.user_id, guild.members)
+            member = discord.utils.find(lamba m : m.id == payload.user_id, guild.members)
             if member is not None:
                 await member.add_roles(role)
                 print("added")
@@ -51,7 +51,7 @@ async def on_raw_reaction_remove(payload):
     message_id = payload.message_id
     if message_id == 673725675131240458:
         guild_id = payload.guild_id
-        guild = discord.utils.find(lamba g: g.id == guild_id, client.guilds)
+        guild = discord.utils.find(lamba g : g.id == guild_id, client.guilds)
 
         if payload.emoji.name == 'lxmage':
             role = discord.utils.get(guild.role, name='mage')
@@ -69,7 +69,7 @@ async def on_raw_reaction_remove(payload):
             role = discord.utils.get(guild.role, name=payload.emoji.name)
 
         if role is not None:
-            member = discord.utils.find(lamba m: m.id == payload.user_id, guild.members)
+            member = discord.utils.find(lamba m : m.id == payload.user_id, guild.members)
             if member is not None:
                 await member.remove_roles(role)
                 print("removed")
