@@ -28,7 +28,7 @@ async def on_ready
 
 @tasks.loop(seconds=10) #-cycle
 async def change_status():
-    await bot.change_preference(activity=discord.Game(next(status)))
+    await client.change_preference(activity=discord.Game(next(status)))
 
 @bot.event #-in progress_1
 async def on_raw_reaction_add(payload): 
