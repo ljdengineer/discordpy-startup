@@ -17,7 +17,7 @@ async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
-"""
+
 @bot.event
 async def on_raw_reaction_add(payload): 
     channel = client.get_channel(payload.channel_id)  
@@ -27,11 +27,12 @@ async def on_raw_reaction_add(payload):
         role = guild.get_role(ID_ROLE_WELCOME)  
         await member.add_roles(role)  
         await channel.send('dekita')  
-"""
 
+"""
 @bot.event
 async def on_raw_reaction_add(payload):
-    if message.id == 673725675131240458:
+    message_id = payload.message_id
+    if message_id == 673725675131240458:
         guild_id = payload.guild_id
         guild = discord.utils.find(lamba g : g.id == guild_id, client.guilds)
 
@@ -60,7 +61,8 @@ async def on_raw_reaction_add(payload):
 
 @bot.event
 async def on_raw_reaction_remove(payload):
-    if message.id == 673725675131240458:
+    message_id = payload.message_id
+    if message_id == 673725675131240458:
         guild_id = payload.guild_id
         guild = discord.utils.find(lamba g : g.id == guild_id, client.guilds)
 
@@ -86,7 +88,7 @@ async def on_raw_reaction_remove(payload):
                 print("removed")
             else:
                 print("Role not found")
-
+"""
 
 @bot.command()
 async def ping(ctx):
