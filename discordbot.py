@@ -58,9 +58,6 @@ async def on_raw_reaction_add(payload):
             else:
                 print("Role not found")
 
-
-@client.event
-or
 @bot.event
 async def on_raw_reaction_remove(payload):
     if message.id == 673725675131240458:
