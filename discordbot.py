@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 import os
 import traceback
@@ -14,6 +15,7 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
+```
 @client.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
@@ -73,6 +75,7 @@ async def on_raw_reaction_remove(payload):
                 print("removed")
             else:
                 print("Role not found")
+```
 
 @bot.command()
 async def ping(ctx):
