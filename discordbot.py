@@ -15,7 +15,7 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-
+"""
 @bot.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
@@ -46,7 +46,7 @@ async def on_raw_reaction_add(payload):
             else:
                 print("Role not found")
 
-"""
+
 @client.event
 or
 @bot.event
