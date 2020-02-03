@@ -9,7 +9,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 client = discord.Client()
 
-@client.event
+@bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
@@ -19,7 +19,7 @@ async def on_command_error(ctx, error):
 """
 @client.event
 or
-@bot.event
+@bot.event < maybe
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
     if message_id == 673725675131240458:
