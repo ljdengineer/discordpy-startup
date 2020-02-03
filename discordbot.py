@@ -1,7 +1,7 @@
 import discord #-system
 from discord.ext import commands #-system
-from discord.ext import tasks #-cycle
-from itertools import cycle #-cycle
+#from discord.ext import tasks #-cycle
+#from itertools import cycle #-cycle
 import os #-system
 import traceback #-system
 
@@ -12,7 +12,7 @@ token = os.environ['DISCORD_BOT_TOKEN'] #-system
 ID_CHANNEL_README = 673725558898688047 # 該当のチャンネルのID  
 ID_ROLE_WELCOME = 673726943538970640 # 付けたい役職のID  
 
-status = cycle(['Status 1', 'Status 2']) #-cycle
+#status = cycle(['Status 1', 'Status 2']) #-cycle
 
 
 @bot.event #-fixed_general
@@ -23,12 +23,14 @@ async def on_command_error(ctx, error):
 
 @bot.event #-fixed_general
 async def on_ready
-    change_status.start() #-cycle
+    #change_status.start() #-cycle
     print('bot is ready')
 
+"""
 @tasks.loop(seconds=10) #-cycle
 async def change_status():
     await client.change_preference(activity=discord.Game(next(status)))
+"""
 
 @bot.event #-in progress_1
 async def on_raw_reaction_add(payload): 
