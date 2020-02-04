@@ -12,7 +12,7 @@ import traceback
 bot = commands.Bot(command_prefix='/') #Botの接頭辞
 token = os.environ['DISCORD_BOT_TOKEN'] #herokuに設定されたtokenを適用させてるっぽい、おまじないの類
 
-### ver1.18 test
+### ver1.19 test
 channel = discord.utils.get(guild.text_channels, name='test01')
 
 # 初期搭載機能群ここから
@@ -36,11 +36,11 @@ async def on_ready(channel):
     await channel.send('Yay!')
 """
 
-### ver1.18 test
+### ver1.19 test
 @bot.event
 async def on_member_update(before, after):
     if before.status != after.status:
         msg = after.display_name + " さんが " + str(after.status) + " になりました"
-        await bot.send_message(text_chat,msg)
+        await discord.Client().send_message(text_chat,msg)
     
 bot.run(token) #おまじない
