@@ -1,6 +1,6 @@
 # LJD-bot 試験ビルド
-# Patch 1.4
-# import discordから追加されたくだり要らないんじゃねってテスト
+# Patch 1.5
+# 1.4で起動はしたので、とりあえず何かしらの挙動を確認したい
 
 # Base
 from discord.ext import commands
@@ -30,9 +30,10 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.4 test
+### ver1.5 test
 @bot.event
 async def on_ready():
-    print("hoge")
+    channel = 672890703285846016:
+    await message.channel.send('Yay!')
     
 bot.run(token) #おまじない
