@@ -1,6 +1,6 @@
 # LJD-bot 試験ビルド
-# Patch 1.5
-# 1.4で起動はしたので、とりあえず何かしらの挙動を確認したい
+# Patch 1.6
+# 1.5はまた落ちた、下手な鉄砲も数撃ちゃ当たる的なテスト
 
 # Base
 from discord.ext import commands
@@ -30,10 +30,10 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.5 test
+### ver1.6 test
 @bot.event
 async def on_ready():
     channel = 672890703285846016:
-    await message.channel.send('Yay!')
+    await channel.send('Yay!')
     
 bot.run(token) #おまじない
