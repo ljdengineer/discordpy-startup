@@ -1,8 +1,6 @@
 # LJD-bot 試験ビルド
-# Patch 1.2
-
-# discord.pyの有効化 from ver1.1
-import discord
+# Patch 1.4
+# import discordから追加されたくだり要らないんじゃねってテスト
 
 # Base
 from discord.ext import commands
@@ -13,9 +11,6 @@ import traceback
 # 初期設定
 bot = commands.Bot(command_prefix='/') #Botの接頭辞
 token = os.environ['DISCORD_BOT_TOKEN'] #herokuに設定されたtokenを適用させてるっぽい、おまじないの類
-
-# clientのクラス化 from ver1.2
-client = discord.Client()
 
 # 初期搭載機能群ここから
 @bot.event
@@ -35,11 +30,8 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.2 test > 結果: 失敗、Bot落ちる
-### @client.event
-### ↓
-### ver1.3 test、とりあえず一回最後まで書いてみる
-@client.event
+### ver1.4 test
+@bot.event
 async def on_ready():
     print("hoge")
     
