@@ -33,7 +33,9 @@ async def teemo(ctx):
 ### ver1.8 test
 @bot.event
 async def on_ready(channel):
-    channel = 672890703285846016:
+    channel = discord.Object(id='672890703285846016')
     await message.channel.send('Yay!')
+    #await client.send_message(channel, 'Yay!')
+    #↑next
     
 bot.run(token) #おまじない
