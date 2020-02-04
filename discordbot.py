@@ -1,5 +1,5 @@
 # LJD-bot 試験ビルド
-# Patch 1.21
+# Patch 1.22
 # 1.8辺りからon_readyを稼働させるのに必死
 # だったけどもしかしたらon_readyなのが悪いのかと考え始め
 # 他のon_xxx系を試してみる
@@ -12,8 +12,8 @@ import traceback
 bot = commands.Bot(command_prefix='/') #Botの接頭辞
 token = os.environ['DISCORD_BOT_TOKEN'] #herokuに設定されたtokenを適用させてるっぽい、おまじないの類
 
-### from ver1.19 test
-channel = discord.utils.get(guild.text_channels, name='test01')
+### from ver1.22 test
+channel = discord.utils.get(guild.text_channels, name='temp-ch-01')
 
 # 初期搭載機能群ここから
 @bot.event
@@ -36,7 +36,7 @@ async def on_ready(channel):
     await channel.send('Yay!')
 """
 
-### ver1.21 test
+### ver1.22 test
 @bot.event
 async def on_member_update(before, after):
     if before.status != after.status:
