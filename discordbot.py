@@ -1,6 +1,6 @@
 # LJD-bot 試験ビルド
-# Patch 1.7
-# 1.6もまた落ちた、下手な鉄砲も数撃ちゃ当たる的なテスト
+# Patch 1.8
+# 1.7もまた落ちた、下手な鉄砲も数撃ちゃ当たる的なテスト
 
 # Base
 from discord.ext import commands
@@ -30,10 +30,10 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.7 test
+### ver1.8 test
 @bot.event
 async def on_ready(channel):
     channel = 672890703285846016:
-    await channel.send('Yay!')
+    await message.channel.send('Yay!')
     
 bot.run(token) #おまじない
