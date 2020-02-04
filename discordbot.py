@@ -1,5 +1,5 @@
 # LJD-bot 試験ビルド
-# Patch 1.13
+# Patch 1.14
 # 1.8辺りからon_readyを稼働させるのに必死
 
 # Base
@@ -30,10 +30,10 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.13 test
+### ver1.14 test
 @bot.event
 async def on_ready():
     channel = discord.Object(id=672890703285846016)
-    await client.send_message(channel, 'Yay!')
+    await bot.send_message(channel, 'Yay!')
     
 bot.run(token) #おまじない
