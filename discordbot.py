@@ -1,6 +1,7 @@
 # LJD-bot 試験ビルド
-# Patch 1.8
-# 1.7もまた落ちた、下手な鉄砲も数撃ちゃ当たる的なテスト
+# Patch 1.9
+# 1.8で遂に動いた、ただon_readyで入れたメッセージは見えて来ない
+# nextは一旦放って置いて、メッセージの出力方法と起動状態をキープし続ける条件の切り分け
 
 # Base
 from discord.ext import commands
@@ -30,9 +31,9 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.8 test
+### ver1.9 test
 @bot.event
-async def on_ready(channel):
+async def on_ready():
     channel = discord.Object(id='672890703285846016')
     await message.channel.send('Yay!')
     #await client.send_message(channel, 'Yay!')
