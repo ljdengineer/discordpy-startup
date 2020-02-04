@@ -1,16 +1,23 @@
 # LJD-bot 試験ビルド
-# Patch 1
+# Patch 1.1
 
+# 入った、これ単体ではエラーおきない
 import discord
+
+# Base
 from discord.ext import commands
 import os
 import traceback
 
 
+# 初期設定
 bot = commands.Bot(command_prefix='/') #Botの接頭辞
 token = os.environ['DISCORD_BOT_TOKEN'] #herokuに設定されたtokenを適用させてるっぽい、おまじないの類
 
+### ver1.1これからコミットする奴
+client = discord.Client()
 
+# 初期搭載機能群ここから
 @bot.event
 async def on_command_error(ctx, error): #接頭辞付きの知らないコマンド来たら動く
     orig_error = getattr(error, "original", error)
@@ -26,5 +33,6 @@ async def ping(ctx):
 @bot.command()
 async def teemo(ctx):
     await ctx.send('On duty!!')
+# 初期搭載機能群ここまで
 
 bot.run(token) #おまじない
