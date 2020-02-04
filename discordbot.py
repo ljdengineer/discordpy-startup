@@ -35,7 +35,12 @@ async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
 
-### ver1.2 test
+### ver1.2 test > 結果: 失敗、Bot落ちる
+### @client.event
+### ↓
+### ver1.3 test、とりあえず一回最後まで書いてみる
 @client.event
-
+async def on_ready():
+    print("hoge")
+    
 bot.run(token) #おまじない
