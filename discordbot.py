@@ -1,7 +1,7 @@
 # LJD-bot 試験ビルド
-# Patch 1.1
+# Patch 1.2
 
-# 入った、これ単体ではエラーおきない
+# discord.pyの有効化 from ver1.1
 import discord
 
 # Base
@@ -14,7 +14,7 @@ import traceback
 bot = commands.Bot(command_prefix='/') #Botの接頭辞
 token = os.environ['DISCORD_BOT_TOKEN'] #herokuに設定されたtokenを適用させてるっぽい、おまじないの類
 
-### ver1.1これからコミットする奴
+# clientのクラス化 from ver1.2
 client = discord.Client()
 
 # 初期搭載機能群ここから
@@ -34,5 +34,8 @@ async def ping(ctx):
 async def teemo(ctx):
     await ctx.send('On duty!!')
 # 初期搭載機能群ここまで
+
+### ver1.2 test
+@client.event
 
 bot.run(token) #おまじない
