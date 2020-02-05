@@ -1,6 +1,7 @@
 # LJD-bot 試験ビルド
-# Patch 1.25
+# Patch 1.26
 # 初期搭載機能群のコマンドを拡張していく形で舵を切ってみる
+# 1.25追加分を動かそうとしています
 
 # Base
 from discord.ext import commands
@@ -46,9 +47,9 @@ async def on_member_update(before, after):
         await discord.bot().send_message(channel,msg)
 """
 
-#ver 1.25 test
+#ver 1.26 test
 @bot.command()
-async def odt(ctx, odt):
+async def ondt(ctx, odt):
     await ctx.send('On duty!!', odt)
 
 bot.run(token) #おまじない
