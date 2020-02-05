@@ -1,6 +1,6 @@
 # LJD-bot 試験ビルド
-# Patch 1.23
-# 何にも動かせねえから痕跡だけ残して一旦クリアに
+# Patch 1.24
+# 懲りずに新機能実装トライ、とりあえず何かしらを動かして糸口を見つけたい
 
 # Base
 from discord.ext import commands
@@ -13,6 +13,14 @@ token = os.environ['DISCORD_BOT_TOKEN'] #herokuに設定されたtokenを適用�
 """ ver1.22 test までやってた化石、結局うごかず。
 channel = discord.utils.get(guild.text_channels, name='temp-ch-01')
 """
+
+# ver1.24 test
+region_london = 'ロンドン'
+region_japan = '日本'
+region_hongkong = '香港'
+
+change_bef = 'に変更します。'
+change_aft = 'に変更しました。'
 
 # 初期搭載機能群ここから
 @bot.event
@@ -42,5 +50,28 @@ async def on_member_update(before, after):
         msg = after.display_name + " さんが " + str(after.status) + " になりました"
         await discord.bot().send_message(channel,msg)
 """
+
+# ver1.24 test
+@bot.event
+async def on_message(message):
+    if message.content.startswith('!region london'):
+        await bot.send_message(message.channel, region_london + change_bef)
+        await bot.edit_guild(message.guild,region='london')
+        await bot.send_message(message.channel, region_london + change_aft)
+    await bot.process_commands(message)
+    elif message.content.startswith('!region japan'):
+        await bot.send_message(message.channel, region_japan + change_bef)
+        await bot.edit_guild(message.guild,region='japan')
+        await bot.send_message(message.channel, region_japan + change_aft)
+    await bot.process_commands(message)
+    elif message.content.startswith('!region hongkong'):
+        await bot.send_message(message.channel, region_hongkong + change_bef)
+        await bot.edit_guild(message.guild,region='hongkong')
+        await bot.send_message(message.channel, region_hongkong + change_aft)
+    await bot.process_commands(message)
+    elif message.content.startswith('!ikiteru'):
+        reply = '生きてます'
+        await bot.send_message(message.channel, reply)
+    await bot.process_commands(message)
     
 bot.run(token) #おまじない
